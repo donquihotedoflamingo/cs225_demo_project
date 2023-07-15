@@ -54,6 +54,7 @@ void init(vector<BK_corp>&loading_data)
     }
 }
 
+// Hiển thị dữ liệu
 void display_data(vector<BK_corp>&display)
 {
     for(auto item : display)
@@ -102,24 +103,86 @@ void search_data(vector<BK_corp>&search)
             << left << setw(11) << item.get_phone_num() << " | "
             << left << setw(11) << item.get_start_work() << " | "
             << left << setw(11) << item.get_end_work() << endl;
-
-
-
-            // cout << "Family name: " << item.get_family_name() << endl;
-            // cout << "Last name: " << item.get_name() << endl;
-            // cout << "Appartment: " << item.get_unit() << endl;
-            // cout << "Position: " << item.get_role() << endl;
-            // cout << "Date of birth: " << item.get_dob() << endl;
-            // cout << "Home town: " << item.get_home_town() << endl;
-            // cout << "Address: " << item.get_address() << endl;
-            // cout << "Email: " << item.get_email() << endl;
-            // cout << "Phone number: " << item.get_phone_num() << endl;
-            // cout << "Start work: " << item.get_start_work() << endl;
-            // cout << "End work: " << item.get_end_work() << endl;
         }
     }
 
 }
+
+// Thêm nhân viên mới (gồm 2 hàm: nhập và lưu về file txt)
+void save_data(string family_name_x, string name_x, string unit_x, string role_x, string dob_x, string home_town_x, string address_x, string email_x, string phone_num_x, string start_work_x, string end_work_x)
+{
+    fstream output("data.txt", ios::app);
+    output << "\n";
+    output << family_name_x << endl;
+    output << name_x << endl;
+    output << unit_x << endl;
+    output << role_x << endl;
+    output << dob_x << endl;
+    output << home_town_x << endl;
+    output << address_x << endl;
+    output << email_x << endl;
+    output << phone_num_x << endl;
+    output << start_work_x << endl;
+    output << end_work_x << endl;
+
+    output.close();
+}
+
+void add_data(vector<BK_corp>&add)
+{
+    cout << "ADD NEW EMPLOYEE:\n";
+
+    string family_name;
+    string name;
+    string unit;
+    string role;
+    string dob;
+    string home_town;
+    string address;
+    string email;
+    string phone_num;
+    string start_work;
+    string end_work;
+
+    cout << "1. Input family name: ";
+    cin.ignore();
+    getline(cin, family_name);
+
+    cout << "2. Input name: ";
+    getline(cin, name);
+
+    cout << "3. Input department: ";
+    getline(cin, unit);
+
+    cout << "4. Input position: ";
+    getline(cin, role);
+
+    cout << "5. Input date of birth: ";
+    getline(cin, dob);
+
+    cout << "6. Input home town: ";
+    getline(cin, home_town);
+
+    cout << "7. Input address: ";
+    getline(cin, address);
+
+    cout << "8. Input email: ";
+    getline(cin, email);
+
+    cout << "9. Input phone number: ";
+    getline(cin, phone_num);
+
+    cout << "10. Input start work: ";
+    getline(cin, start_work);
+
+    cout << "11. Input end work: ";
+    getline(cin, end_work);
+
+    BK_corp tmp(family_name, name, unit, role, dob, home_town, address, email, phone_num, start_work, end_work);
+    add.push_back(tmp);
+    save_data(family_name, name, unit, role, dob, home_town, address, email, phone_num, start_work, end_work);
+}
+
 
 int main()
 {
@@ -157,7 +220,10 @@ int main()
         }
         else if(option == "3"){cout << "Hello";}
         else if(option == "4"){cout << "Hello";}
-        else if(option == "5"){cout << "Hello";}
+        else if(option == "5")
+        {
+            add_data(person);
+        }
         else if(option == "6"){cout << "Hello";}
         else if(option == "7")
         {
