@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include "class_def.h"
+#include <iomanip>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -57,17 +58,17 @@ void display_data(vector<BK_corp>&display)
 {
     for(auto item : display)
     {
-        cout << "Family name: " << item.get_family_name() << endl;
-        cout << "Last name: " << item.get_name() << endl;
-        cout << "Appartment: " << item.get_unit() << endl;
-        cout << "Position: " << item.get_role() << endl;
-        cout << "Date of birth: " << item.get_dob() << endl;
-        cout << "Home town" << item.get_home_town() << endl;
-        cout << "Address: " << item.get_address() << endl;
-        cout << "Email: " << item.get_email() << endl;
-        cout << "Phone number: " << item.get_phone_num() << endl;
-        cout << "Start work: " << item.get_start_work() << endl;
-        cout << "End work:" << item.get_end_work() << endl;
+        cout << left << setw(11) << item.get_family_name() << " | "
+            << left << setw(2) << item.get_name() << " | "
+            << left << setw(15) << item.get_unit() << " | "
+            << left << setw(9) << item.get_role() << " | "
+            << left << setw(11) << item.get_dob() << " | "
+            << left << setw(9) << item.get_home_town() << " | "
+            << left << setw(9) << item.get_address() << " | "
+            << left << setw(11) << item.get_email() << " | "
+            << left << setw(11) << item.get_phone_num() << " | "
+            << left << setw(11) << item.get_start_work() << " | "
+            << left << setw(11) << item.get_end_work() << endl;
     }
 }
 
@@ -80,26 +81,41 @@ void search_data(vector<BK_corp>&search)
     getline(cin, fam_name);
     cout << "Input name you want to find: ";
     cin >> name;
-    cout << fam_name << endl;
-    cout << name << endl;
+    cout << endl;
 
     for(auto item : search)
     {
         if(item.get_family_name() == fam_name && item.get_name() == name)
         {
+
             cout << "DATA AVAILABLE\n";
             cout << "Here is the result:\n";
-            cout << "Family name: " << item.get_family_name() << endl;
-            cout << "Last name: " << item.get_name() << endl;
-            cout << "Appartment: " << item.get_unit() << endl;
-            cout << "Position: " << item.get_role() << endl;
-            cout << "Date of birth: " << item.get_dob() << endl;
-            cout << "Home town: " << item.get_home_town() << endl;
-            cout << "Address: " << item.get_address() << endl;
-            cout << "Email: " << item.get_email() << endl;
-            cout << "Phone number: " << item.get_phone_num() << endl;
-            cout << "Start work: " << item.get_start_work() << endl;
-            cout << "End work: " << item.get_end_work() << endl;
+
+            cout << left << setw(9) << item.get_family_name() << " | "
+            << left << setw(2) << item.get_name() << " | "
+            << left << setw(11) << item.get_unit() << " | "
+            << left << setw(9) << item.get_role() << " | "
+            << left << setw(11) << item.get_dob() << " | "
+            << left << setw(9) << item.get_home_town() << " | "
+            << left << setw(9) << item.get_address() << " | "
+            << left << setw(11) << item.get_email() << " | "
+            << left << setw(11) << item.get_phone_num() << " | "
+            << left << setw(11) << item.get_start_work() << " | "
+            << left << setw(11) << item.get_end_work() << endl;
+
+
+
+            // cout << "Family name: " << item.get_family_name() << endl;
+            // cout << "Last name: " << item.get_name() << endl;
+            // cout << "Appartment: " << item.get_unit() << endl;
+            // cout << "Position: " << item.get_role() << endl;
+            // cout << "Date of birth: " << item.get_dob() << endl;
+            // cout << "Home town: " << item.get_home_town() << endl;
+            // cout << "Address: " << item.get_address() << endl;
+            // cout << "Email: " << item.get_email() << endl;
+            // cout << "Phone number: " << item.get_phone_num() << endl;
+            // cout << "Start work: " << item.get_start_work() << endl;
+            // cout << "End work: " << item.get_end_work() << endl;
         }
     }
 
